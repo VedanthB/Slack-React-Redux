@@ -6,6 +6,7 @@ import {
   Link
 } from "react-router-dom";
 import './App.css';
+import Header from './components/Header';
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
          <>
            <Switch>
               <Route path="/" >
-                 {/* <Home /> */}
+                 <Header />
               </Route>
            </Switch>
          </>
