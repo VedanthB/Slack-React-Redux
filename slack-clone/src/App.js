@@ -7,17 +7,24 @@ import {
 } from "react-router-dom";
 import './App.css';
 import Header from './components/Header';
+import styled from 'styled-components'
+import Sidebar from './components/Sidebar';
 
 function App() {
   return (
     <div className="App">
       <Router>
          <>
-           <Switch>
-              <Route path="/" >
-                 <Header />
-              </Route>
-           </Switch>
+         <Header />
+          <AppBody>
+          <Sidebar />
+            <Switch>
+                <Route path="/"  exact>
+                   {/* chat */}
+                </Route>
+            </Switch>
+          </AppBody>
+          
          </>
       </Router>
     </div>
@@ -25,3 +32,8 @@ function App() {
 }
 
 export default App;
+
+const AppBody = styled.div `
+  display : flex;
+  height: 100vh ;
+`;
