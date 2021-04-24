@@ -49,7 +49,12 @@ function Sidebar() {
 
                 {/* maps out the channels from the database and renders it as the sidebarOption */}
                   
-                {channels?.docs.map(doc => (<SidebarOption key={doc.id} id={doc.id} title={doc.data().name} />))}
+                {channels?.docs.map(doc => (<SidebarOption 
+                                              key={doc.id} 
+                                              id={doc.id} 
+                                              title={doc.data().name} />)
+                                              )
+                                              }
 
                 {/* key so it doesnt get re render everytime new list is added */}
                 {/* id is a prop */}
