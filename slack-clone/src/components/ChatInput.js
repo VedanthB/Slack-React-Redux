@@ -3,10 +3,10 @@ import styled from 'styled-components'
 import Button from '@material-ui/core/Button';
 import { db } from '../firebase';
 import firebase from 'firebase'
-import { useCollection, useDocument } from 'react-firebase-hooks/firestore';
 
 
-function ChatInput({ channelId , channelName }) {
+
+function ChatInput({ channelId , channelName, chatRef }) {
     const [input, setInput] = useState('')
 
     const sendMessage = (e) => {
@@ -25,13 +25,17 @@ function ChatInput({ channelId , channelName }) {
         })
 
         setInput('')
+
+        chatRef.current.scrollIntoView({
+            behaviour: 'smooth',
+        })
     }
 
 
     return (
         <ChatInputContainer>
             <form >
-                <input onChange={(e) => setInput(e.target.value)} value={input} placeholder={`Message #Room`} />
+                <input  onChange={(e) => setInput(e.target.value)} value={input} placeholder={`Message #${channelName}`} />
 
                 <Button  type='submit' hidden onClick={sendMessage} >
                     send
